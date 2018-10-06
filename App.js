@@ -4,7 +4,6 @@ import { Router, Scene, Actions } from 'react-native-router-flux';
 import Login from './views/Login';
 import CreateAccount from './views/CreateAccount';
 import Messages from './views/Messages';
-import Profile from './views/Profile';
 import Chat from './views/Chat';
 
 export default class App extends React.Component {

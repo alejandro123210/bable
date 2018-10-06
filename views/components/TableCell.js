@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button, StyleSheet, View, TouchableOpacity, Image, Alert } from 'react-native';
+import { Text, StyleSheet, View, TouchableOpacity, Image, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 //required props are name, key, date, lastmessage

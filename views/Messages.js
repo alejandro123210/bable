@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
-import { Actions } from 'react-native-router-flux'; 
+import { ScrollView, StyleSheet } from 'react-native';
 import TableCell from './components/TableCell'
 
 class Messages extends React.Component {
