@@ -34,11 +34,6 @@ export default class App extends React.Component {
             hideNavBar = { false }
           />
           <Scene 
-            key = 'profile'
-            component = { Profile }
-            hideNavBar = { false }
-          />
-          <Scene 
             key = 'chat'
             component = { Chat }
             hideNavBar = { false }

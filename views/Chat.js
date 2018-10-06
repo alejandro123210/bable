@@ -1,8 +1,5 @@
 import { GiftedChat, Message } from 'react-native-gifted-chat';
-import { Actions } from 'react-native-router-flux';
 import React from 'react';
-import { View } from 'react-native';
-
 
 class Chat extends React.Component {
 
