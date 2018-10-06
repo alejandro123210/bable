@@ -10,25 +10,29 @@ class CreateAccount extends React.Component {
 
     render() {
         return(
-            <View>
-                <View>
-                    <TextInput placeholder="Name" style={styles.inputs}/>
-                    <TextInput placeholder="phone number" style={styles.inputs}/>
-                    <TouchableOpacity onPress={this.buttonPressed}>
-                        <Text> Done </Text>
-                    </TouchableOpacity>
-                </View>
+            <View style={styles.container}>
+                <TextInput placeholder="Name" style={styles.input}/>
+                <TextInput placeholder="phone number" style={styles.input}/>
+                <TouchableOpacity onPress={this.buttonPressed}>
+                    <Text> Done </Text>
+                </TouchableOpacity>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    inputs: {
-        marginTop: 30,
-        paddingTop: 30,
-        height: 200
-    }
-});
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    input : {
+        width: '70%',
+        paddingBottom: 5,
+        marginTop: 10,
+        marginBottom: 10
+    },
+})
 
 export default CreateAccount
