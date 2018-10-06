@@ -31,17 +31,17 @@ export default class App extends React.Component {
           <Scene 
             key = 'messages'
             component = { Messages }
-            hideNavBar = { true }
+            hideNavBar = { false }
           />
           <Scene 
-            key = 'Profile'
+            key = 'profile'
             component = { Profile }
-            hideNavBar = { true }
+            hideNavBar = { false }
           />
           <Scene 
-            key = 'Chat'
+            key = 'chat'
             component = { Chat }
-            hideNavBar = { true }
+            hideNavBar = { false }
           />
         </Scene>
       </Router>
