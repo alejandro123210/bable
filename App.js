@@ -1,27 +1,26 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { GiftedChat, Message } from 'react-native-gifted-chat';
-import { Actions } from 'react-native-router-flux';
+import { Router, Scene, Actions } from 'react-native-router-flux';
+import Login from './views/Login'
 
 export default class App extends React.Component {
 
-  state = {
-    text: 'hello world'
+  componentDidMount(){
+    //any configuration like API keys goes here
   }
 
-  onPress = () => {
-    this.setState({
-      text: 'you touched me'
-    })
-  }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>{this.state.text}</Text>
-        <Button title="press me" onPress={this.onPress}/>
-      </View>
-      
+      <Router> 
+        <Scene key='root'>
+          <Scene 
+            key = 'login'
+            component = { Login }
+            hideNavBar = { true }
+          />
+        </Scene>
+      </Router>
     );
   }
 }
@@ -34,3 +33,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
