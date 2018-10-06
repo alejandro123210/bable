@@ -6,6 +6,15 @@ import { View } from 'react-native';
 
 class Chat extends React.Component {
 
+    //when send is hit
+    onSend(messages = []) {
+        this.setState((previousState) => {
+            return {
+                messages: GiftedChat.append(previousState.messages, messages),
+            };
+        });
+    }
+
     //the messages should be here. 
     state = {
         messages:[]
@@ -20,7 +29,14 @@ class Chat extends React.Component {
     render() {
         return (
             //configure gifted chat here
-            <GiftedChat />
+            <GiftedChat 
+                renderAvatar={null}
+                messages={this.state.messages}
+                onSend={messages => this.onSend(messages)}
+                user={{
+                    _id: 1,
+                }}
+            />
         );
     }
 }
