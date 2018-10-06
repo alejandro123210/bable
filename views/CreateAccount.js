@@ -6,6 +6,8 @@ class CreateAccount extends React.Component {
 
     buttonPressed = () => {
         //this should activate twilio for verification, then sign the person up for bable
+        //After that it does this
+        Actions.messages()
     }
 
     render() {

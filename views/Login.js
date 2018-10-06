@@ -6,9 +6,7 @@ class Login extends React.Component {
 
     donePressed = () => {
         //this should activate twilio and sign the person in
-        Actions.messages({
-            
-        })
+        Actions.messages();
     }
 
     createAccountPressed = () => {
