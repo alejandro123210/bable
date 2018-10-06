@@ -9,18 +9,18 @@ class Login extends React.Component {
     }
 
     createAccountPressed = () => {
-        
+
     }
 
     render() {
         return(
             <View style={styles.container}>
                 <TextInput placeholder="phone number" style={styles.input}/>
-                <TouchableOpacity onPress={this.donePressed}>
+                <TouchableOpacity onPress={this.donePressed} style={styles.buttons}>
                     <Text> Done </Text>
                 </TouchableOpacity>
                 <Text> or </Text>
-                <TouchableOpacity onPress={this.createAccountPressed}>
+                <TouchableOpacity onPress={this.createAccountPressed} style={styles.buttons}>
                     <Text> Create Account!</Text>
                 </TouchableOpacity>
             </View>
@@ -35,7 +35,12 @@ styles = StyleSheet.create({
         alignItems: 'center'
     },
     input : {
-        width: '70%'
+        width: '70%',
+        paddingBottom: 5,
+    },
+    buttons: {
+        paddingTop: 10,
+        paddingBottom: 10
     }
 })
 
