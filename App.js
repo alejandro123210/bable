@@ -5,11 +5,13 @@ import Login from './views/Login';
 import CreateAccount from './views/CreateAccount';
 import Messages from './views/Messages';
 import Chat from './views/Chat';
+import SendBird from 'sendbird';
 
 export default class App extends React.Component {
 
   componentDidMount(){
     //any configuration like API keys goes here
+    
   }
 
 
@@ -20,11 +22,6 @@ export default class App extends React.Component {
           <Scene 
             key = 'login'
             component = { Login }
-            hideNavBar = { true }
-          />
-          <Scene 
-            key = 'createAccount'
-            component = { CreateAccount }
             hideNavBar = { true }
           />
           <Scene 
