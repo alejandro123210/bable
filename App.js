@@ -1,11 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { Router, Scene, Actions } from 'react-native-router-flux';
 import Login from './views/Login';
-import CreateAccount from './views/CreateAccount';
 import Messages from './views/Messages';
 import Chat from './views/Chat';
-import SendBird from 'sendbird';
+import Dialog from 'react-native-dialog';
 
 export default class App extends React.Component {
 
@@ -28,6 +27,16 @@ export default class App extends React.Component {
             key = 'messages'
             component = { Messages }
             hideNavBar = { false }
+            renderRightButton={() =>
+              <TouchableOpacity
+                style={styles.profileButton}
+                onPress={() => {
+                  alert('new feature coming soon!')
+                }}
+              >
+              {/* <Text style={{fontSize: 30}}>+</Text> */}
+              </TouchableOpacity>
+            }
           />
           <Scene 
             key = 'chat'
@@ -47,5 +56,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  profileButton: {
+    marginRight: 10,
+    height: 30,
+    width: 30,
+    marginBottom:10
+  }
 });
 
