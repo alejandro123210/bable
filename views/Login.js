@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet, Text, Alert } from 'react-native';
-import { Actions } from 'react-native-router-flux'; 
+import { Actions } from 'react-native-router-flux';
 import SendBird from 'sendbird';
 
 class Login extends React.Component {
@@ -15,8 +15,8 @@ class Login extends React.Component {
 
     donePressed = () => {
         //this configures sendbird.
-        const sb = new SendBird({ 
-            'appId': 'AC48960C-67E0-4AE9-BB15-21B3EE4F46CA' 
+        const sb = new SendBird({
+            'appId': 'AC48960C-67E0-4AE9-BB15-21B3EE4F46CA'
         });
         const { userID } = this.state;
         sb.connect(userID, function(user, error){
@@ -59,7 +59,7 @@ class Login extends React.Component {
                             //this inefficiently gets the user to get the alert when they don't have a username
                             userNickname: ''
                         })
-                    } 
+                    }
                 }
             }
         }.bind(this))
@@ -70,10 +70,10 @@ class Login extends React.Component {
     render() {
         return(
             <View style={styles.container}>
-                <TextInput 
+                <TextInput
                     ref={input => { this.myTextInput = input }}
-                    placeholder={this.state.inputPlaceholder} 
-                    style={styles.input} 
+                    placeholder={this.state.inputPlaceholder}
+                    style={styles.input}
                     onChangeText={(text)=>{
                         //this is the setup for changing to a name input after the number if there is no user
                         if(this.state.newUserSignup == false){
@@ -85,7 +85,7 @@ class Login extends React.Component {
                                 userNickname: text
                             })
                         }
-                        
+
                     }}
                 />
                 <TouchableOpacity onPress={this.donePressed} style={styles.buttons}>
