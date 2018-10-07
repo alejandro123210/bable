@@ -74,24 +74,6 @@ class Login extends React.Component {
         return(
 
             <View style={styles.container}>
-<<<<<<< HEAD
-            <Image
-            style={{width:"100%",height:"100%", margin:`0%`,position:"absolute",zIndex:-1,}}
-            source={{uri: "http://i.stack.imgur.com/7vMmx.jpg"}}
-            />
-            <Image
-            style={{top:"10%",width:PixelRatio.getPixelSizeForLayoutSize(100),height:PixelRatio.getPixelSizeForLayoutSize(100),position:"absolute"}}
-            source={{uri: "https://i.imgur.com/msB1D8r.png"}}
-            />
-
-                <TextInput placeholder="Phone number" style={styles.input}keyboardType = 'numeric'/>
-                <TouchableOpacity onPress={this.donePressed} style={styles.buttons}>
-                    <Text> Login</Text>
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={this.createAccountPressed} style={styles.buttons}>
-                    <Text> Create Account!</Text>
-=======
 
                 <Image
                 style={{width:"100%",height:"100%", margin:`0%`,position:"absolute",zIndex:-1,}}
@@ -122,7 +104,6 @@ class Login extends React.Component {
                 />
                 <TouchableOpacity onPress={this.donePressed} style={styles.buttons}>
                     <Text> Login</Text>
->>>>>>> ee53421e9edc66131cf2b5b8881ae6aae70f1a3d
                 </TouchableOpacity>
 
 
