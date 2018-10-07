@@ -27,8 +27,8 @@ class Login extends React.Component {
                 //this checks if the user exists
                 if (user.nickname != '') {
                     Actions.messages({
-                        // userID: userID,
-                        // nickname: user.nickname,
+                        userID: userID,
+                        nickname: user.nickname,
                     });
                 } else {
                     //this changes the view so that the user can enter their name

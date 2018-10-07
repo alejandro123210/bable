@@ -6,22 +6,52 @@ import SendBird from 'sendbird'
 
 class Messages extends React.Component {
 
-
-    //we're gonna need to render all the user's messages in here, this will show recent conversations.
-    state = {
-        contacts:[
-            {
-                key: 1,
-                name: 'name',
-                lastMessage: 'message goes here',
-                lastMessageTime: 'time of last message goes here',
-                image: 'https://assets-cdn.github.com/images/modules/open_graph/github-mark.png'
-            },
-        ],
-        newText: false,
-        message: '',
-        otherID: ''
+    constructor(props){
+        super(props);
+        this.state = {
+            contacts:[
+            
+            ],
+            newText: false,
+            message: '',
+            otherID: '',
+        };
     }
+
+    componentWillMount () {
+        contactList = []
+        let actualThis = this;
+        sb = new SendBird({appId: 'AC48960C-67E0-4AE9-BB15-21B3EE4F46CA'})
+        sb.GroupChannel.getChannel("sendbird_group_channel_75337281_4572d512314db4bc1741f7616c4f28d1053b0c60", function (channel, error ){
+            if(error){
+                alert(error)
+            } else {
+                var messageListQuery = channel.createPreviousMessageListQuery();
+                messageListQuery.load(5, true, async function(messageList, error){
+                    if (error) {
+                        alert(error);
+                        return;
+                    }
+                    date = "";
+                    
+                    for (var i = 0; i < 3; i++){
+                        contact = {
+                            key: messageList[i]._sender.userId + String(i),
+                            name: messageList[i]._sender.nickname,
+                            lastMessage: messageList[i].message,
+                            lastMessageTime: date,
+                            image:'https://assets-cdn.github.com/images/modules/open_graph/github-mark.png',
+                        }
+                        contactList.push(contact);
+                    } 
+                    actualThis.setState({
+                        contacts: contactList
+                    })
+                })
+            }
+        })
+    }
+
 
     showNewMessage = () => {
         this.setState({
@@ -37,29 +67,50 @@ class Messages extends React.Component {
     }
 
     submitPressed = () => {
-        const sb = new SendBird({ 
-            'appId': 'AC48960C-67E0-4AE9-BB15-21B3EE4F46CA' 
-        });
-        sb.GroupChannel.createChannelWithUserIds([this.state.otherID], true, this.props.userID + this.state.otherID, null, this.state.message, null, function(createdChannel, error){
+        sb = new SendBird({appId: 'AC48960C-67E0-4AE9-BB15-21B3EE4F46CA'})
+        //creates channel
+        sb.GroupChannel.createChannelWithUserIds(['9734779880'], true, this.props.userID + this.state.otherID, null, null, null, function(createdChannel, error){
             if (error) {
                 alert(error)
                 return;
             } else {
-                alert('success!')
+                
             }
         });
+        
+        sb.GroupChannel.getChannel("sendbird_group_channel_75337281_4572d512314db4bc1741f7616c4f28d1053b0c60", function (channel, error ){
+            myChannel = channel
+            if (error) {
+                alert('there was a problem /:')
+            } else {
+                alert(channel)
+                myChannel.sendUserMessage(this.state.message, null, null, function(message, error){
+                    if (error) {
+                        alert(error);
+                        return;
+                    } else {
+                        alert(message)
+                    }
+                })
+            }
+
+        }.bind(this))
+
+        //turns off the popup view
         this.setState({
             newText: false
         })
-        alert('success!')
+        // alert('success!')
     }
+
+    
 
     render() {
         return(
             <View style={styles.outerView}>
                 <ScrollView style = {styles.scrollContainer}>
                     <Button title="New Message" onPress={this.showNewMessage}/>
-                    {mappedText = this.state.contacts.map(person =>
+                    {this.state.contacts.map(person =>
                     //tableCell is a custom class, check it out it's in here
                         <TableCell
                             name={person.name}
@@ -70,7 +121,6 @@ class Messages extends React.Component {
                         />
                     )}
                 </ScrollView>
-                <View></View>
                 <Dialog.Container visible={this.state.newText}>
                     <Dialog.Title>New Message</Dialog.Title>
                     <Dialog.Description>

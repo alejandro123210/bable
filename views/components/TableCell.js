@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, StyleSheet, View, TouchableOpacity, Image, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-//required props are name, key, date, lastmessage
+//required props are name, key, date, lastmessage, and sendername
 const tableCell = props => {
 
     //action for normal press, goes to chat screen
@@ -11,7 +11,7 @@ const tableCell = props => {
             renderTitle: <Image source={{ uri: props.image }} style={{height: 40, width: 40, alignSelf: 'center', borderRadius: 10000}} />,
             profilePic: props.image,
             lastMessage: props.lastMessage,
-            nameOfUser: props.name
+            nameOfUser: props.name,
         });
     }
 
