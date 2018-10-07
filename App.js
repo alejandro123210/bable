@@ -15,24 +15,25 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Router> 
+      <Router>
         <Scene key='root'>
-          <Scene 
+          <Scene
             key = 'login'
             component = { Login }
             hideNavBar = { true }
+
           />
-          <Scene 
+          <Scene
             key = 'createAccount'
             component = { CreateAccount }
             hideNavBar = { true }
           />
-          <Scene 
+          <Scene
             key = 'messages'
             component = { Messages }
             hideNavBar = { false }
           />
-          <Scene 
+          <Scene
             key = 'chat'
             component = { Chat }
             hideNavBar = { false }
@@ -42,13 +43,14 @@ export default class App extends React.Component {
     );
   }
 }
- 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+
+
   },
 });
-
